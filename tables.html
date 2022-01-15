@@ -138,24 +138,19 @@
                           <th>Email</th>
                           <th>Payment Address</th>
                           <th>Invoice Date</th>
-                          <th>Due Date</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <% product.forEach(function(each){ let i=0;%>
+                        <% invoices.forEach(function(each){ let i=0;%>
                           <tr>
                             <th scope="row"><=% i %></th>
                             <td><%= each.company_name %></td>
                             <td><%= each.email %></td>
                             <td><%= each.payment_address %></td>
                             <td><%= each.invoice_date %></td>
-                            <td><%= each.due_date %></td>
+                            <td><%= each.status %></td>
                           </tr>
                         <% i++;}); %>
-                          <th class="border-bottom-0" scope="row">3</th>
-                          <td class="border-bottom-0">Larry</td>
-                          <td class="border-bottom-0">the Bird</td>
-                          <td class="border-bottom-0">@twitter</td>
                         </tr>
                       </tbody>
                     </table>

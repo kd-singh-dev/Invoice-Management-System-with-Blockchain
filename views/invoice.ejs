@@ -15,7 +15,7 @@
   <!-- theme stylesheet-->
   <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
   <!-- Custom stylesheet - for your changes-->
-  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/invoice.css">
   <!-- Favicon-->
   <link rel="shortcut icon" href="img/favicon.ico">
   <!-- Tweaks for older IEs-->
@@ -87,6 +87,7 @@
         </div>
       </div><span class="text-uppercase text-gray-600 text-xs mx-3 px-2 heading mb-2">Main</span>
       <ul class="list-unstyled">
+
         <li class="sidebar-item "><a class="sidebar-link" href="/">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#real-estate-1"> </use>
@@ -123,6 +124,16 @@
           <ol class="breadcrumb mb-0 py-3 px-0">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Invoice</li>
+            <li class="drop-down">
+              <div class="select" tabindex="1">
+                <input class="selectopt" name="test" type="radio" id="opt1" checked>
+                <label for="opt1" class="option">All</label>
+                <input class="selectopt" name="test" type="radio" id="opt2">
+                <label for="opt2" class="option">Not Paid</label>
+                <input class="selectopt" name="test" type="radio" id="opt3">
+                <label for="opt3" class="option">Completed</label>
+              </div>
+            </li>
           </ol>
         </nav>
       </div>
@@ -145,7 +156,6 @@
                           <th>Payment Address</th>
                           <th>Invoice Date</th>
                           <th>Status</th>
-
                         </tr>
                       </thead>
                       <tbody>

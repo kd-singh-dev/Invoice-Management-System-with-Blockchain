@@ -1,1 +1,59 @@
 /* your styles go here */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.invoice-header{
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.label{
+    font-size: 12px;
+    font-weight: bold;
+}
+.invoice-input{
+    width: 90%;
+}
+.invoice-from{
+    padding-right: 20px;
+    display: table-cell;
+    width: 1%;
+}
+.invoice-to{
+    padding-left: 20px;
+    display: table-cell;
+    width: 1%;
+}
+.invoice-date-section,.last-date-section{
+    width: 20%;
+}
+.invoice-paymentMethod{
+    margin-top: 50px;
+    width: 30%;
+}
+.add-more:hover,.trash-icon:hover{
+    cursor: pointer;
+}
+.input-control{
+    padding: 5px;
+    width: fit-content;
+}
+.add-more,.remove{
+    display: flex;
+}
+.trash-container{
+    position: relative;
+}
+.trash-icon{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

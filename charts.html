@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="css/custom.css">
   <!-- Favicon-->
   <link rel="shortcut icon" href="img/favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
 </head>
 
@@ -36,7 +38,7 @@
             <div class="col-lg-8 mx-auto">
               <form class="px-4" id="searchForm" action="#">
                 <div class="input-group position-relative flex-column flex-lg-row flex-nowrap">
-                  <input class="form-control shadow-0 bg-none px-0 w-100" type="search" name="search"
+                  <input class="form-control shadow-autocomplete="off" 0 bg-none px-0 w-100" type="search" name="search"
                     placeholder="What are you searching for...">
                   <button
                     class="btn btn-link text-gray-600 px-0 text-decoration-none fw-bold cursor-pointer text-center"
@@ -103,7 +105,7 @@
       <!-- Page Header-->
       <div class="bg-dash-dark-2 py-4">
         <div class="container-fluid">
-          <h2 class="h5 mb-0">Charts</h2>
+          <h2 class="h5 mb-0">Generate Invoice</h2>
         </div>
       </div>
       <!-- Breadcrumb-->
@@ -115,7 +117,162 @@
           </ol>
         </nav>
       </div>
-
+      <div class="container">
+        <div class="col-md-12">
+           <div class="invoice">
+              <!-- end invoice-company -->
+              <!-- begin invoice-header -->
+              <div class="invoice-header">
+                 <div class="invoice-from">
+                    <h3>From</h3>
+                      <div class="input-material-group mb-4 invoice-input-owner-company-name">
+                        <label class="label" for="owner-company-name">Company Name</label>
+                        <input class="input-material" autocomplete="off" id="owner-company-name" type="text" name="ownerCompanyName" required data-validate-field="ownerCompanyName">
+                      </div>
+                      <div class="input-material-group mb-4 invoice-input-owner-email">
+                        <label class="label" for="owner-email">Email</label>
+                        <input class="input-material" autocomplete="off" id="owner-email" type="number" name="ownerEmail" required data-validate-field="ownerEmail">
+                      </div>
+                 </div>
+                 <div class="invoice-to">
+                     <h3>To</h3>
+                     <div class="input-material-group mb-4 invoice-input-company-name">
+                      <label class="label" for="company-name">Company Name</label>
+                      <input class="input-material" autocomplete="off" id="company-name" type="number" name="companyName" required data-validate-field="companyName">
+                    </div>
+                    <div class="input-material-group mb-4 invoice-input-email">
+                      <label class="label" for="email">Email</label>
+                      <input class="input-material" autocomplete="off" id="email" type="number" name="email" required data-validate-field="email">
+                    </div>
+                 </div>
+                 <div class="invoice-date-section">
+                  <div class="input-material-group mb-4 invoice-input-invoice-date">
+                    <label class="label" for="invoice-date">Invoice Date</label>
+                    <input class="input-material" autocomplete="off" id="invoice-date" type="date" name="invoiceDate" required data-validate-field="invoiceDate">
+                  </div>
+                 </div>
+                 <div class="last-date-section">
+                  <div class="input-material-group mb-4 invoice-input-last-date">
+                    <label class="label" for="last-date">Last Date</label>
+                    <input class="input-material" autocomplete="off" id="last-date" type="date" name="lastDate" required data-validate-field="lastDate">
+                  </div>
+                </div>
+                
+                <div class="invoice-paymentMethod">
+                  <h3>Payment Method</h3>
+                  <div class="input-material-group mb-4 invoice-input-network">
+                    <label class="label" for="network">Network</label>
+                    <select class="input-material" autocomplete="off">
+                      <option value="ethereum">Ethereum</option>
+                    </select>
+                  </div>
+                  <div class="input-material-group mb-4 invoice-input-payment-option">
+                    <label class="label" for="payment-option">Payment Option</label>
+                    <select class="input-material" autocomplete="off">
+                      <option value="0">--select payment option--</option>
+                      <option value="1">Full Advance Payment</option>
+                      <option value="2">50% Advance - 50% Post work</option>
+                      <option value="3">100% Post work payment</option>
+                    </select>
+                  </div>
+                 </div>
+              </div>
+              <!-- end invoice-header -->
+              <!-- begin invoice-content -->
+              <div class="invoice-content">
+                 <!-- begin table-responsive -->
+                 <div class="table-responsive">
+                    <table class="table table-invoice">
+                       <thead>
+                          <tr>
+                             <th>PRODUCT DESCRIPTION</th>
+                             <th class="text-right" width="10%">QUANTITY</th>
+                             <th class="text-right" width="10%">RATE</th>
+                             <th class="text-right" width="10%">TAX (%)</th>
+                             <th class="text-right" width="">DISCOUNT</th>
+                             <th class="text-right" width="20%">LINE TOTAL</th>
+                             <th class="text-right" width=""></th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                          <tr class="text-center field1">
+                             <td>
+                              <div class="input-material-group mb-4 invoice-input-product-name">
+                                <input class="input-material" autocomplete="off" id="product-name1" type="text" name="productName1" placeholder="Product Name" required data-validate-field="productName1">
+                              </div>
+                            </td>
+                            <td class="text-right">
+                              <div class="input-material-group mb-4 invoice-input-quantity">
+                                <input class="input-material" autocomplete="off" id="quantity1" type="number" name="quantity1" placeholder="Quantity" required data-validate-field="quantity1">
+                              </div>
+                            </td>
+                            <td class="text-right">
+                               <div class="input-material-group mb-4 invoice-input-invoice-rate">
+                                 <input class="input-material" autocomplete="off" id="rate1" type="number" name="rate1" placeholder="Rate" required data-validate-field="rate1">
+                               </div>
+                               
+                              </td>
+                              <td class="text-right">
+                               <div class="input-material-group mb-4 invoice-input-invoice-tax">
+                                 <input class="input-material" autocomplete="off" id="invoice-tax1" type="number" name="invoiceTax1" placeholder="" required data-validate-field="invoiceTax1">
+                               </div>
+                              </td>
+                              <td class="text-right">
+                               <div class="input-material-group mb-4 invoice-input-invoice-discount">
+                                 <input class="input-material" autocomplete="off" id="invoice-discount1" type="number" name="invoiceDiscount1" placeholder="" required data-validate-field="invoiceDiscount1">
+                               </div>
+                              </td>
+                              <td class="text-right">
+                               <div class="input-material-group mb-4 invoice-input-invoice-row-total">
+                                 <input class="input-material" autocomplete="off" id="invoice-total1" type="number" name="invoiceTotal1" placeholder="" required data-validate-field="invoiceTotal1">
+                               </div>
+                             </td>
+                              <td class="text-right trash-container" >
+                                <i class="fa fa-trash text-muted trash-icon" data-number="1"> </i>
+                             </td>
+                          </tr>
+                       </tbody>
+                    </table>
+                    <div class="input-control">
+                      <h5 class="add-more" data-total-entry="1" data-seq="1">
+                        <i class="fa fa-plus text-muted"> </i> Add
+                      </h5>
+                    </div>
+                 </div>
+                 <!-- end table-responsive -->
+                 <!-- begin invoice-price -->
+                 <div class="invoice-price">
+                    <div class="invoice-price-left">
+                       <div class="invoice-price-row">
+                          <div class="sub-price">
+                             <small>SUBTOTAL</small>
+                             <span class="text-inverse">$4,500.00</span>
+                          </div>
+                          <div class="sub-price">
+                             <i class="fa fa-plus text-muted"></i>
+                          </div>
+                          <div class="sub-price">
+                             <small>PAYPAL FEE (5.4%)</small>
+                             <span class="text-inverse">$108.00</span>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="invoice-price-right">
+                       <small>TOTAL</small> <span class="f-w-600">$4508.00</span>
+                    </div>
+                 </div>
+                 <!-- end invoice-price -->
+              </div>
+              <!-- end invoice-content -->
+              <!-- begin invoice-note -->
+              
+              <!-- end invoice-note -->
+              <!-- begin invoice-footer -->
+              
+              <!-- end invoice-footer -->
+           </div>
+        </div>
+     </div>
      <!-- Page Footer-->
      <footer class="position-absolute bottom-0 bg-dash-dark-2 text-white text-center py-3 w-100 text-xs" id="footer">
       <div class="container-fluid text-center">
@@ -135,12 +292,85 @@
   <!-- Main File-->
   <script src="js/front.js"></script>
   <script>
+    $(document).ready(function(){
+      $(".add-more").click(function(){
+        var x = $(this).data('seq');
+        $("tbody").append(`
+        <tr class="text-center field`+(x+1)+`">
+          <td>
+            <div class="input-material-group mb-4 invoice-input-product-name">
+              <input class="input-material" autocomplete="off" id="product-name`+(x+1)+`" type="number" name="productName`+(x+1)+`" placeholder="Product Name" required data-validate-field="productName`+(x+1)+`">
+              </div>
+              </td>
+              <td class="text-center">
+                <div class="input-material-group mb-4 invoice-input-quantity">
+                                <input class="input-material" autocomplete="off" id="quantity`+(x+1)+`" type="number" name="quantity`+(x+1)+`" placeholder="Quantity" required data-validate-field="quantity`+(x+1)+`">
+                              </div>
+                            </td>
+                            <td class="text-center">
+                              <div class="input-material-group mb-4 invoice-input-invoice-rate">
+                                 <input class="input-material" autocomplete="off" id="rate`+(x+1)+`" type="number" name="rate`+(x+1)+`" placeholder="Rate" required data-validate-field="rate`+(x+1)+`">
+                              </div>
+                                 
+                            </td>
+                            <td class="text-right">
+                               <div class="input-material-group mb-4 invoice-input-invoice-tax">
+                                 <input class="input-material" autocomplete="off" id="invoice-tax`+(x+1)+`" type="number" name="invoiceTax`+(x+1)+`" placeholder="" required data-validate-field="invoiceTax`+(x+1)+`">
+                               </div>
+                              </td>
+                              <td class="text-right">
+                               <div class="input-material-group mb-4 invoice-input-invoice-discount">
+                                 <input class="input-material" autocomplete="off" id="invoice-discount`+(x+1)+`" type="number" name="invoiceDiscount`+(x+1)+`" placeholder="" required data-validate-field="invoiceDiscount`+(x+1)+`">
+                               </div>
+                              </td>
+                              <td class="text-right">
+                               <div class="input-material-group mb-4 invoice-input-invoice-row-total">
+                                 <input class="input-material" autocomplete="off" id="invoice-total`+(x+1)+`" type="number" name="invoiceTotal`+(x+1)+`" placeholder="" required data-validate-field="invoiceTotal`+(x+1)+`">
+                               </div>
+                             </td>
+                            <td class="text-right trash-container" >
+                                <i class="fa fa-trash text-muted trash-icon" data-number="`+(x+1)+`"> </i>
+                            </td>
+                </tr>
+        `);
+        $(this).data('seq', x+1);
+        $(this).data('total-entry', $(".add-more").data('total-entry')+1);
+        //console.log("total entry: "+$(".add-more").data('total-entry'));
+      });
+      $("tbody").delegate('.trash-icon','click',function(){
+        var x = $(this).data('number');
+        console.log(x);
+        $(".field"+x).remove();
+        $(".add-more").data('total-entry', $(".add-more").data('total-entry')-1);
+        //console.log("total entry: "+$(".add-more").data('total-entry'));
+      });
+      $("tbody").delegate(".invoice-input-quantity, .invoice-input-invoice-rate, .invoice-input-invoice-discount, .invoice-input-invoice-tax",'input' ,function(){
+        var x = $(this).parent().parent().find(".trash-container i").data('number');
+        var quantity = $(this).parent().parent().find(".invoice-input-quantity #quantity"+x+"").val();
+        var rate = $(this).parent().parent().find(".invoice-input-invoice-rate #rate"+x+"").val();
+        var discount = $(this).parent().parent().find(".invoice-input-invoice-discount #invoice-discount"+x+"").val();
+        var tax = $(this).parent().parent().find(".invoice-input-invoice-tax #invoice-tax"+x+"").val();
+        var total = (quantity*rate)-(discount)+((quantity*rate*tax)/100);
+        //console.log(x+" "+quantity+" "+rate+" "+discount+" "+tax+" "+total);
+        if(discount<0 || discount>100){
+          alert("Discount should be between 0 and 100");
+          $(this).parent().parent().find(".invoice-input-invoice-discount #invoice-discount"+x+"").val(0);
+          $(this).parent().parent().find(".invoice-input-invoice-discount #invoice-discount"+x+"").focus();
+        }
+        if(tax<0 || tax>100){
+          alert("Tax should be between 0 and 100");
+          $(this).parent().parent().find(".invoice-input-invoice-tax #invoice-tax"+x+"").val(0);
+          $(this).parent().parent().find(".invoice-input-invoice-tax #invoice-tax"+x+"").focus();
+        }
+        $(this).parent().parent().find(".invoice-input-invoice-row-total #invoice-total"+x+"").val(total);
+      });
+    });
     // ------------------------------------------------------- //
     //   Inject SVG Sprite - 
     //   see more here 
     //   https://css-tricks.com/ajaxing-svg-sprite/
     // ------------------------------------------------------ //
-    function injectSvgSprite(path) {
+    function injectSvgSprite(path) { 
 
       var ajax = new XMLHttpRequest();
       ajax.open("GET", path, true);

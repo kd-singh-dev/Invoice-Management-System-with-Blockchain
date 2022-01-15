@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="css/invoice.css">
   <!-- Favicon-->
   <link rel="shortcut icon" href="img/favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <!-- Tweaks for older IEs-->
   <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -100,9 +102,6 @@
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#sales-up-1"> </use>
             </svg><span>Generate Invoice </span></a></li>
-        
-
-
       </ul>
 
 
@@ -120,15 +119,7 @@
           <ol class="breadcrumb mb-0 py-3 px-0">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Invoice</li>
-            <li class="drop-down">
-              <div class="select" tabindex="1">
-                <input class="selectopt" name="test" type="radio" id="opt1" checked>
-                <label for="opt1" class="option">All</label>
-                <input class="selectopt" name="test" type="radio" id="opt2">
-                <label for="opt2" class="option">Not Paid</label>
-                <input class="selectopt" name="test" type="radio" id="opt3">
-                <label for="opt3" class="option">Completed</label>
-              </div>
+            
             </li>
           </ol>
         </nav>
@@ -163,7 +154,6 @@
                             <td><%= each.email %></td>
                             <td><%= each.payment_address %></td>
                             <td><%= each.invoice_date %></td>
-                            <td><%= each.status %></td>
                           </tr>
                         <% i++;}); %>
                         </tr>
@@ -196,6 +186,25 @@
   <!-- Main File-->
   <script src="js/front.js"></script>
   <script>
+    $(document).ready(function(){
+      $('.selectopt').click(function(){
+        var x = $(this).attr('id');
+        if(x=="opt1")
+        {
+
+        }
+        else if(x=="opt2")
+        {
+          $("").show();
+        }
+        else if(x=="opt3")
+        {
+
+        }
+        console.log(x);
+      });
+
+    });
     // ------------------------------------------------------- //
     //   Inject SVG Sprite - 
     //   see more here 

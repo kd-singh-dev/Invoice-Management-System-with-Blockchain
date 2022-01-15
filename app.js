@@ -273,8 +273,18 @@ app.get("/invoice", async function (req, res) {
     res.render("invoice", { invoices: invoices });
 });
 
-app.get("/invoiceData", function (req, res) {
-    console.log(req.query);
+app.get("/invoiceData", async function (req, res) {
+    //const account = await window.ethereum.getAccounts();
+    //console.log(account);
+    const a = "0x809C038a02791B18C06ed7947B2c74F41EC2700D";
+    try{
+        console.log(req.query);
+        const id = await contract.methods._invoiceCreate(`${req.query.quantity1}`,req.query.productName1,"Dai","Ethereum",req.query.rate1,10,`${"0xD817F7BF414B9226431EeC0C8eAe11780B81A831"}`).call();
+        console.log(id);    
+    }catch(err){
+        console.log(err);
+    }
+    
     res.redirect('/');
 });
 

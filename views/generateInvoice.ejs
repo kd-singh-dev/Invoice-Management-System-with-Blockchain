@@ -178,13 +178,21 @@
                 <h3>Payment Method</h3>
                 <div class="input-material-group mb-4 invoice-input-network">
                   <label class="label" for="network">Network</label>
-                  <select class="input-material" autocomplete="off">
+                  <select class="input-material" autocomplete="off" name="network">
                     <option value="ethereum">Ethereum</option>
+                  </select>
+                </div>
+                <div class="input-material-group mb-4 invoice-input-payment-currency">
+                  <label class="label" for="payment-currency">Currency</label>
+                  <select class="input-material" autocomplete="off" name="paymentCurrency">
+                    <option value="0">--select payment currency--</option>
+                    <option value="1">DAI</option>
+                    <option value="2">ETH</option>
                   </select>
                 </div>
                 <div class="input-material-group mb-4 invoice-input-payment-option">
                   <label class="label" for="payment-option">Payment Option</label>
-                  <select class="input-material" autocomplete="off">
+                  <select class="input-material" autocomplete="off" name="paymentOption">
                     <option value="0">--select payment option--</option>
                     <option value="1">Full Advance Payment</option>
                     <option value="2">50% Advance - 50% Post work</option>
@@ -202,7 +210,7 @@
                   <thead>
                     <tr>
                       <th>PRODUCT DESCRIPTION</th>
-                      <th class="text-right" width="10%">QUANTITY</th>
+                      <th class="text-right" width="10%">TRANSACTION</th>
                       <th class="text-right" width="10%">RATE</th>
                       <th class="text-right" width="10%">TAX (%)</th>
                       <th class="text-right" width="">DISCOUNT</th>
@@ -221,7 +229,7 @@
                       <td class="text-right">
                         <div class="input-material-group mb-4 invoice-input-quantity">
                           <input class="input-material" autocomplete="off" id="quantity1" type="number" name="quantity1"
-                            placeholder="Quantity" required data-validate-field="quantity1">
+                            placeholder="Transaction" required data-validate-field="quantity1">
                         </div>
                       </td>
                       <td class="text-right">
@@ -234,19 +242,19 @@
                       <td class="text-right">
                         <div class="input-material-group mb-4 invoice-input-invoice-tax">
                           <input class="input-material" autocomplete="off" id="invoice-tax1" type="number"
-                            name="invoiceTax1" placeholder="" required data-validate-field="invoiceTax1">
+                            name="invoiceTax1" placeholder="Tax" required data-validate-field="invoiceTax1">
                         </div>
                       </td>
                       <td class="text-right">
                         <div class="input-material-group mb-4 invoice-input-invoice-discount">
                           <input class="input-material" autocomplete="off" id="invoice-discount1" type="number"
-                            name="invoiceDiscount1" placeholder="" required data-validate-field="invoiceDiscount1">
+                            name="invoiceDiscount1" placeholder="Discount" required data-validate-field="invoiceDiscount1">
                         </div>
                       </td>
                       <td class="text-right">
                         <div class="input-material-group mb-4 invoice-input-invoice-row-total">
                           <input class="input-material" autocomplete="off" id="invoice-total1" type="number"
-                            name="invoiceTotal1" placeholder="" required data-validate-field="invoiceTotal1" disabled>
+                            name="invoiceTotal1" placeholder="Total" required data-validate-field="invoiceTotal1" disabled>
                         </div>
                       </td>
                       <td class="text-right trash-container">
@@ -331,7 +339,7 @@
               </td>
               <td class="text-center">
                 <div class="input-material-group mb-4 invoice-input-quantity">
-                                <input class="input-material" autocomplete="off" id="quantity`+(x+1)+`" type="number" name="quantity`+(x+1)+`" placeholder="Quantity" required data-validate-field="quantity`+(x+1)+`">
+                                <input class="input-material" autocomplete="off" id="quantity`+(x+1)+`" type="number" name="quantity`+(x+1)+`" placeholder="Transaction" required data-validate-field="quantity`+(x+1)+`">
                               </div>
                             </td>
                             <td class="text-center">
@@ -342,17 +350,17 @@
                             </td>
                             <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-tax">
-                                 <input class="input-material" autocomplete="off" id="invoice-tax`+(x+1)+`" type="number" name="invoiceTax`+(x+1)+`" placeholder="" required data-validate-field="invoiceTax`+(x+1)+`">
+                                 <input class="input-material" autocomplete="off" id="invoice-tax`+(x+1)+`" type="number" name="invoiceTax`+(x+1)+`" placeholder="Tax" required data-validate-field="invoiceTax`+(x+1)+`">
                                </div>
                               </td>
                               <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-discount">
-                                 <input class="input-material" autocomplete="off" id="invoice-discount`+(x+1)+`" type="number" name="invoiceDiscount`+(x+1)+`" placeholder="" required data-validate-field="invoiceDiscount`+(x+1)+`">
+                                 <input class="input-material" autocomplete="off" id="invoice-discount`+(x+1)+`" type="number" name="invoiceDiscount`+(x+1)+`" placeholder="Discount" required data-validate-field="invoiceDiscount`+(x+1)+`">
                                </div>
                               </td>
                               <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-row-total">
-                                 <input class="input-material" autocomplete="off" id="invoice-total`+(x+1)+`" type="number" name="invoiceTotal`+(x+1)+`" placeholder="" required data-validate-field="invoiceTotal`+(x+1)+`" disabled>
+                                 <input class="input-material" autocomplete="off" id="invoice-total`+(x+1)+`" type="number" name="invoiceTotal`+(x+1)+`" placeholder="Total" required data-validate-field="invoiceTotal`+(x+1)+`" disabled>
                                </div>
                              </td>
                             <td class="text-right trash-container" >

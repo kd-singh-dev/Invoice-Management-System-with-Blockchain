@@ -1,24 +1,6 @@
 <!DOCTYPE html>
 <html>
- <!-- need this variable
-        ownerCompanyName
-        ownerCompanyEmail
-        CompanyName
-        CompanyEmail
-        invoiceDate
-        lastDate
-        paymentOption = (1 or 2 or 3)
-        totalProduct
-            productName
-            productQuantity
-            productRate
-            tax
-            discount
-            lineTotal
-        subTotal
-        totalDiscount
-        totalAmount
-    -->
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,6 +24,25 @@
 </head>
 
 <body>
+    <!-- need this variable
+        ownerCompanyName
+        ownerCompanyEmail
+        CompanyName
+        CompanyEmail
+        invoiceDate
+        lastDate
+        paymentOption = (1 or 2 or 3)
+        totalProduct
+            productName
+            productQuantity
+            productRate
+            tax
+            discount
+            lineTotal
+        subTotal
+        totalDiscount
+        totalAmount
+    -->
   <header class="header">
     <nav class="navbar navbar-expand-lg py-3 bg-dash-dark-2 border-bottom border-dash-dark-1 z-index-10">
       <div class="search-panel">
@@ -137,41 +138,43 @@
                     <h3>From</h3>
                       <div class="input-material-group mb-4 invoice-input-owner-company-name">
                         <label class="label" for="owner-company-name">Company Name</label>
-                        <input class="input-material" autocomplete="off" id="owner-company-name" type="text" name="ownerCompanyName" required data-validate-field="ownerCompanyName">
+                        <p class="input-material" autocomplete="off" id="owner-company-name" type="text" name="ownerCompanyName" required data-validate-field="ownerCompanyName"><=% ownerCompanyName %></p>
+
                       </div>
                       <div class="input-material-group mb-4 invoice-input-owner-email">
                         <label class="label" for="owner-email">Email</label>
-                        <input class="input-material" autocomplete="off" id="owner-email" type="number" name="ownerEmail" required data-validate-field="ownerEmail">
+                        <p class="input-material" autocomplete="off" id="owner-email" type="number" name="ownerEmail" required data-validate-field="ownerEmail"><=% ownerCompanyEmail %></p>
                       </div>
                  </div>
                  <div class="invoice-to">
                      <h3>To</h3>
                      <div class="input-material-group mb-4 invoice-input-company-name">
                       <label class="label" for="company-name">Company Name</label>
-                      <input class="input-material" autocomplete="off" id="company-name" type="number" name="companyName" required data-validate-field="companyName">
+                      <p class="input-material" autocomplete="off" id="company-name" type="number" name="companyName" required data-validate-field="companyName"><=% CompanyName %></p>
                     </div>
                     <div class="input-material-group mb-4 invoice-input-email">
                       <label class="label" for="email">Email</label>
-                      <input class="input-material" autocomplete="off" id="email" type="number" name="email" required data-validate-field="email">
+                      <p class="input-material" autocomplete="off" id="email" type="number" name="email" required data-validate-field="email"><=% CompanyEmail %></p>
                     </div>
                  </div>
                  <div class="invoice-date-section">
                   <div class="input-material-group mb-4 invoice-input-invoice-date">
                     <label class="label" for="invoice-date">Invoice Date</label>
-                    <input class="input-material" autocomplete="off" id="invoice-date" type="date" name="invoiceDate" required data-validate-field="invoiceDate">
+                    <p class="input-material" autocomplete="off" id="invoice-date" type="date" name="invoiceDate" required data-validate-field="invoiceDate"><=% invoiceDate %></p>
                   </div>
                  </div>
                  <div class="last-date-section">
                   <div class="input-material-group mb-4 invoice-input-last-date">
                     <label class="label" for="last-date">Last Date</label>
-                    <input class="input-material" autocomplete="off" id="last-date" type="date" name="lastDate" required data-validate-field="lastDate">
-                  </div>
+                    <p class="input-material" autocomplete="off" id="last-date" type="date" name="lastDate" required data-validate-field="lastDate"><=% lastDate %></p>
                 </div>
-                
-                <div class="invoice-paymentMethod">
-                  <h3>Payment Method</h3>
-                  <div class="input-material-group mb-4 invoice-input-network">
+            </div>
+            
+            <div class="invoice-paymentMethod">
+                <h3>Payment Method</h3>
+                <div class="input-material-group mb-4 invoice-input-network">
                     <label class="label" for="network">Network</label>
+                    <p class="input-material" autocomplete="off" id="network" type="date" name="network" required data-validate-field="network"><=%</p>
                     <select class="input-material" autocomplete="off">
                       <option value="ethereum">Ethereum</option>
                     </select>
@@ -208,46 +211,38 @@
                           <tr class="text-center field1">
                              <td>
                               <div class="input-material-group mb-4 invoice-input-product-name">
-                                <input class="input-material" autocomplete="off" id="product-name1" type="text" name="productName1" placeholder="Product Name" required data-validate-field="productName1">
+                                <p class="input-material" autocomplete="off" id="product-name1" type="text" name="productName1" placeholder="Product Name" required data-validate-field="productName1">
                               </div>
                             </td>
                             <td class="text-right">
                               <div class="input-material-group mb-4 invoice-input-quantity">
-                                <input class="input-material" autocomplete="off" id="quantity1" type="number" name="quantity1" placeholder="Quantity" required data-validate-field="quantity1">
+                                <p class="input-material" autocomplete="off" id="quantity1" type="number" name="quantity1" placeholder="Quantity" required data-validate-field="quantity1">
                               </div>
                             </td>
                             <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-rate">
-                                 <input class="input-material" autocomplete="off" id="rate1" type="number" name="rate1" placeholder="Rate" required data-validate-field="rate1">
+                                 <p class="input-material" autocomplete="off" id="rate1" type="number" name="rate1" placeholder="Rate" required data-validate-field="rate1">
                                </div>
                                
                               </td>
                               <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-tax">
-                                 <input class="input-material" autocomplete="off" id="invoice-tax1" type="number" name="invoiceTax1" placeholder="" required data-validate-field="invoiceTax1">
+                                 <p class="input-material" autocomplete="off" id="invoice-tax1" type="number" name="invoiceTax1" placeholder="" required data-validate-field="invoiceTax1">
                                </div>
                               </td>
                               <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-discount">
-                                 <input class="input-material" autocomplete="off" id="invoice-discount1" type="number" name="invoiceDiscount1" placeholder="" required data-validate-field="invoiceDiscount1">
+                                 <p class="input-material" autocomplete="off" id="invoice-discount1" type="number" name="invoiceDiscount1" placeholder="" required data-validate-field="invoiceDiscount1">
                                </div>
                               </td>
                               <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-row-total">
-                                 <input class="input-material" autocomplete="off" id="invoice-total1" type="number" name="invoiceTotal1" placeholder="" required data-validate-field="invoiceTotal1" disabled>
+                                 <p class="input-material" autocomplete="off" id="invoice-total1" type="number" name="invoiceTotal1" placeholder="" required data-validate-field="invoiceTotal1" disabled>
                                </div>
-                             </td>
-                              <td class="text-right trash-container" >
-                                <i class="fa fa-trash text-muted trash-icon" data-number="1"> </i>
                              </td>
                           </tr>
                        </tbody>
                     </table>
-                    <div class="input-control">
-                      <h5 class="add-more" data-total-entry="1" data-seq="1">
-                        <i class="fa fa-plus text-muted"> </i> Add
-                      </h5>
-                    </div>
                  </div>
                  <!-- end table-responsive -->
                  <!-- begin invoice-price -->

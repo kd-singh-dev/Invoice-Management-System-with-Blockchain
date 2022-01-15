@@ -141,7 +141,20 @@
                                     <h3 class="h4 mb-0">Add new customer</h3>
                                 </div>
                                 <div class="card-body">
-
+                                    <form class="form-horizontal" id="customerForm" action="">
+                                        <div class="input-material-group mb-4 invoice-input-customer-name">
+                                            <input class="input-material" autocomplete="off" id="customer-name" type="text"
+                                              name="customerName" placeholder="Customer Name" required data-validate-field="customerName">
+                                          </div>
+                                          <div class="input-material-group mb-4 invoice-input-customer-email">
+                                            <input class="input-material" autocomplete="off" id="customer-email" type="text"
+                                              name="customerEmail" placeholder="Customer Email" required data-validate-field="customerEmail">
+                                          </div>
+                                          <button class="btn" type="">
+                                            <i class="fa fa-save text-muted" style="font-size:25px;color:white;" aria-hidden="true"></i>
+                                            <span class="">Save</span>
+                                          </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

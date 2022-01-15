@@ -52,8 +52,8 @@
       </div>
       <div class="container-fluid d-flex align-items-center justify-content-between py-1">
         <div class="navbar-header d-flex align-items-center"><a class="navbar-brand text-uppercase text-reset"
-            href="index.html">
-            <div class="brand-text brand-big"><strong class="text-primary">Dark</strong><strong>Admin</strong></div>
+            href="/">
+            <div class="brand-text brand-big"><strong class="text-primary">Dash</strong><strong>Board</strong></div>
             <div class="brand-text brand-sm"><strong class="text-primary">D</strong><strong>A</strong></div>
           </a>
           <button class="sidebar-toggle">
@@ -65,7 +65,7 @@
         <ul class="list-inline mb-0">
 
           <li class="list-inline-item logout px-lg-2"> <a class="nav-link text-sm text-reset px-1 px-lg-0" id="logout"
-              href="login.html"> <span class="d-none d-sm-inline-block">Logout </span>
+              href="/login"> <span class="d-none d-sm-inline-block">Logout </span>
               <svg class="svg-icon svg-icon-xs svg-icon-heavy">
                 <use xlink:href="#disable-1"> </use>
               </svg></a></li>
@@ -73,104 +73,136 @@
       </div>
     </nav>
   </header>
-
-
   <div class="d-flex align-items-stretch">
     <!-- Sidebar Navigation-->
     <nav id="sidebar">
       <!-- Sidebar Header-->
       <div class="sidebar-header d-flex align-items-center p-4"><img class="avatar shadow-0 img-fluid rounded-circle"
-        src="https://avatars.githubusercontent.com/u/50829119?v=4" alt="...">
-      <div class="ms-3 title">
-        <h1 class="h5 mb-1">KD Singh</h1>
-        <p class="text-sm text-gray-700 mb-0 lh-1">Admin</p>
-      </div>
+          src="https://avatars.githubusercontent.com/u/50829119?v=4" alt="...">
+        <div class="ms-3 title">
+          <h1 class="h5 mb-1">KD Singh</h1>
+          <p class="text-sm text-gray-700 mb-0 lh-1">Admin</p>
+        </div>
       </div><span class="text-uppercase text-gray-600 text-xs mx-3 px-2 heading mb-2">Main</span>
       <ul class="list-unstyled">
-        <li class="sidebar-item"><a class="sidebar-link" href="index.html">
+        <li class="sidebar-item active"><a class="sidebar-link" href="/">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#real-estate-1"> </use>
             </svg><span>Home </span></a></li>
-        <li class="sidebar-item active"><a class="sidebar-link" href="tables.html">
+        <li class="sidebar-item"><a class="sidebar-link" href="/invoice">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#portfolio-grid-1"> </use>
-            </svg><span>Invoice </span></a></li>
-
-        <li class="sidebar-item"><a class="sidebar-link" href="charts.html">
+            </svg><span>Invoices </span></a></li>
+        <li class="sidebar-item"><a class="sidebar-link" href="/generateInvoice">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#sales-up-1"> </use>
             </svg><span>Generate Invoice </span></a></li>
+        
 
 
+      </ul>
 
     </nav>
-    <div class="page-content form-page">
+    <div class="page-content">
       <!-- Page Header-->
       <div class="bg-dash-dark-2 py-4">
         <div class="container-fluid">
-          <h2 class="h5 mb-0">Invoice</h2>
+          <h2 class="h5 mb-0">Dashboard</h2>
         </div>
       </div>
-      <!-- Breadcrumb-->
-      <div class="container-fluid py-2">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb mb-0 py-3 px-0">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Invoice</li>
-          </ol>
-        </nav>
-      </div>
-      <section class="tables py-0">
+      <section>
         <div class="container-fluid">
           <div class="row gy-4">
-            <div class="col-lg-12">
+            <div class="col-md-3 col-sm-6">
               <div class="card mb-0">
-                <div class="card-header">
-                  <h3 class="h4 mb-0">Invoice History</h3>
-                </div>
-                <div class="card-body pt-0">
-                  <div class="table-responsive">
-                    <table class="table mb-0">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Company Name</th>
-                          <th>Email</th>
-                          <th>Payment Address</th>
-                          <th>Invoice Date</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <% invoices.forEach(function(each){ let i=0;%>
-                          <tr>
-                            <th scope="row"><=% i %></th>
-                            <td><%= each.company_name %></td>
-                            <td><%= each.email %></td>
-                            <td><%= each.payment_address %></td>
-                            <td><%= each.invoice_date %></td>
-                            <td><%= each.status %></td>
-                          </tr>
-                        <% i++;}); %>
-                        </tr>
-                      </tbody>
-                    </table>
+                <div class="card-body">
+                  <div class="d-flex align-items-end justify-content-between mb-2">
+                    <div class="me-2">
+                      <svg class="svg-icon svg-icon-sm svg-icon-heavy text-gray-600 mb-2">
+                        <use xlink:href="#user-1"> </use>
+                      </svg>
+                      <p class="text-sm text-uppercase text-gray-600 lh-1 mb-0">Clients</p>
+                    </div>
+                    <p class="text-xxl lh-1 mb-0 text-dash-color-1">27</p>
+                  </div>
+                  <div class="progress" style="height: 3px">
+                    <div class="progress-bar bg-dash-color-1" role="progressbar" style="width: 30%" aria-valuenow="30"
+                      aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
             </div>
-
-
+            <div class="col-md-3 col-sm-6">
+              <div class="card mb-0">
+                <div class="card-body">
+                  <div class="d-flex align-items-end justify-content-between mb-2">
+                    <div class="me-2">
+                      <svg class="svg-icon svg-icon-sm svg-icon-heavy text-gray-600 mb-2">
+                        <use xlink:href="#stack-1"> </use>
+                      </svg>
+                      <p class="text-sm text-uppercase text-gray-600 lh-1 mb-0">Payments</p>
+                    </div>
+                    <p class="text-xxl lh-1 mb-0 text-dash-color-2">375</p>
+                  </div>
+                  <div class="progress" style="height: 3px">
+                    <div class="progress-bar bg-dash-color-2" role="progressbar" style="width: 70%" aria-valuenow="70"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="card mb-0">
+                <div class="card-body">
+                  <div class="d-flex align-items-end justify-content-between mb-2">
+                    <div class="me-2">
+                      <svg class="svg-icon svg-icon-sm svg-icon-heavy text-gray-600 mb-2">
+                        <use xlink:href="#survey-1"> </use>
+                      </svg>
+                      <p class="text-sm text-uppercase text-gray-600 lh-1 mb-0">Pending Invoices</p>
+                    </div>
+                    <p class="text-xxl lh-1 mb-0 text-dash-color-3">140</p>
+                  </div>
+                  <div class="progress" style="height: 3px">
+                    <div class="progress-bar bg-dash-color-3" role="progressbar" style="width: 55%" aria-valuenow="55"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="card mb-0">
+                <div class="card-body">
+                  <div class="d-flex align-items-end justify-content-between mb-2">
+                    <div class="me-2">
+                      <svg class="svg-icon svg-icon-sm svg-icon-heavy text-gray-600 mb-2">
+                        <use xlink:href="#paper-stack-1"> </use>
+                      </svg>
+                      <p class="text-sm text-uppercase text-gray-600 lh-1 mb-0">Registered Compenies</p>
+                    </div>
+                    <p class="text-xxl lh-1 mb-0 text-dash-color-4">41</p>
+                  </div>
+                  <div class="progress" style="height: 3px">
+                    <div class="progress-bar bg-dash-color-4" role="progressbar" style="width: 35%" aria-valuenow="35"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-     <!-- Page Footer-->
-     <footer class="position-absolute bottom-0 bg-dash-dark-2 text-white text-center py-3 w-100 text-xs" id="footer">
-      <div class="container-fluid text-center">
-        <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-        <p class="mb-0 text-dash-gray">2022 &copy; A hacking team from, <a
-            href="https://github.com/kdsinghcoder">VIT Vellore</a>.</p>
-      </div>
-    </footer>
+
+
+
+      <!-- Page Footer-->
+      <footer class="position-absolute bottom-0 bg-dash-dark-2 text-white text-center py-3 w-100 text-xs" id="footer">
+        <div class="container-fluid text-center">
+          <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+          <p class="mb-0 text-dash-gray">2022 &copy; A hacking team from, <a
+              href="https://github.com/kdsinghcoder">VIT Vellore</a>.</p>
+        </div>
+      </footer>
     </div>
   </div>
   <!-- JavaScript files-->
@@ -178,6 +210,7 @@
   <script src="vendor/just-validate/js/just-validate.min.js"></script>
   <script src="vendor/chart.js/Chart.min.js"></script>
   <script src="vendor/choices.js/public/assets/scripts/choices.min.js"></script>
+  <script src="js/charts-home.js"></script>
   <!-- Main File-->
   <script src="js/front.js"></script>
   <script>

@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
-
+ <!-- need this variable
+        ownerCompanyName
+        ownerCompanyEmail
+        CompanyName
+        CompanyEmail
+        invoiceDate
+        lastDate
+        paymentOption = (1 or 2 or 3)
+        totalProduct
+            productName
+            productQuantity
+            productRate
+            tax
+            discount
+            lineTotal
+        subTotal
+        totalDiscount
+        totalAmount
+    -->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,15 +54,7 @@
           </div>
           <div class="row w-100">
             <div class="col-lg-8 mx-auto">
-              <form class="px-4" id="searchForm" action="#">
-                <div class="input-group position-relative flex-column flex-lg-row flex-nowrap">
-                  <input class="form-control shadow-autocomplete="off" 0 bg-none px-0 w-100" type="search" name="search"
-                    placeholder="What are you searching for...">
-                  <button
-                    class="btn btn-link text-gray-600 px-0 text-decoration-none fw-bold cursor-pointer text-center"
-                    type="submit">Search</button>
-                </div>
-              </form>
+              
             </div>
           </div>
         </div>
@@ -224,7 +234,7 @@
                               </td>
                               <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-row-total">
-                                 <input class="input-material" autocomplete="off" id="invoice-total1" type="number" name="invoiceTotal1" placeholder="" required data-validate-field="invoiceTotal1">
+                                 <input class="input-material" autocomplete="off" id="invoice-total1" type="number" name="invoiceTotal1" placeholder="" required data-validate-field="invoiceTotal1" disabled>
                                </div>
                              </td>
                               <td class="text-right trash-container" >
@@ -245,27 +255,30 @@
                     <div class="invoice-price-left">
                        <div class="invoice-price-row">
                           <div class="sub-price">
-                             <small>SUBTOTAL</small>
-                             <span class="text-inverse">$4,500.00</span>
+                             <small>SUBTOTAL (With TAX)</small>
+                             <span class="text-inverse">$<span id="subtotal">0</span></span>
                           </div>
                           <div class="sub-price">
-                             <i class="fa fa-plus text-muted"></i>
+                             <i class="fa fa-minus text-muted"></i>
                           </div>
                           <div class="sub-price">
-                             <small>PAYPAL FEE (5.4%)</small>
-                             <span class="text-inverse">$108.00</span>
+                             <small>Discount </small>
+                             <span class="text-inverse">$<span id="discount">0</span></span>
                           </div>
                        </div>
                     </div>
                     <div class="invoice-price-right">
-                       <small>TOTAL</small> <span class="f-w-600">$4508.00</span>
+                       <small>TOTAL</small> <span class="f-w-600">$<span id="final-total">0</span></span>
                     </div>
                  </div>
                  <!-- end invoice-price -->
               </div>
               <!-- end invoice-content -->
               <!-- begin invoice-note -->
-              
+              <button class="btn">
+                <i class="fa fa-save text-muted" style="font-size:25px;color:white;" aria-hidden="true"></i>
+                <span class="">Save</span>
+              </button>
               <!-- end invoice-note -->
               <!-- begin invoice-footer -->
               
@@ -350,19 +363,37 @@
         var rate = $(this).parent().parent().find(".invoice-input-invoice-rate #rate"+x+"").val();
         var discount = $(this).parent().parent().find(".invoice-input-invoice-discount #invoice-discount"+x+"").val();
         var tax = $(this).parent().parent().find(".invoice-input-invoice-tax #invoice-tax"+x+"").val();
-        var total = (quantity*rate)-(discount)+((quantity*rate*tax)/100);
+        var total = (quantity*rate)+((quantity*rate*tax)/100);
         //console.log(x+" "+quantity+" "+rate+" "+discount+" "+tax+" "+total);
-        if(discount<0 || discount>100){
-          alert("Discount should be between 0 and 100");
-          $(this).parent().parent().find(".invoice-input-invoice-discount #invoice-discount"+x+"").val(0);
-          $(this).parent().parent().find(".invoice-input-invoice-discount #invoice-discount"+x+"").focus();
-        }
+
         if(tax<0 || tax>100){
           alert("Tax should be between 0 and 100");
           $(this).parent().parent().find(".invoice-input-invoice-tax #invoice-tax"+x+"").val(0);
           $(this).parent().parent().find(".invoice-input-invoice-tax #invoice-tax"+x+"").focus();
         }
+        if(quantity<0){
+          alert("Quantity should be greater than 0");
+          $(this).parent().parent().find(".invoice-input-quantity #quantity"+x+"").val(0);
+          $(this).parent().parent().find(".invoice-input-quantity #quantity"+x+"").focus();
+        }
         $(this).parent().parent().find(".invoice-input-invoice-row-total #invoice-total"+x+"").val(total);
+        var sum = 0;
+        var sum_discount = 0;
+        $('table tr').each(function(){
+          var x = $(this).find(".trash-container i").data('number');
+          $(this).find('.invoice-input-invoice-row-total #invoice-total'+x+'').each(function(){
+            sum += parseFloat($(this).val());
+          });
+          $("#subtotal").html(sum.toFixed(3));
+          $(this).find('.invoice-input-invoice-discount #invoice-discount'+x+'').each(function(){
+            if($(this).val()>0){
+              sum_discount += parseFloat($(this).val());
+            }
+          });
+          $("#discount").html(sum_discount);
+          console.log(sum_discount);
+        });
+        $("#final-total").html((parseFloat($("#subtotal").html())-parseFloat($("#discount").html())).toFixed(3));
       });
     });
     // ------------------------------------------------------- //

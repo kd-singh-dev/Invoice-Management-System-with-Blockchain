@@ -72,3 +72,7 @@ input:checked + label:before {
     content: '';
     background:#666;
 }
+.drop-down{
+    margin-left:auto;
+    margin-right:0;
+}

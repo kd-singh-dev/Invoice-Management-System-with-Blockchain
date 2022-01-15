@@ -70,13 +70,17 @@
     <!-- Main File-->
     <script src="js/front.js"></script>
     <script>
+      
       // ------------------------------------------------------- //
       //   Inject SVG Sprite - 
       //   see more here 
       //   https://css-tricks.com/ajaxing-svg-sprite/
       // ------------------------------------------------------ //
       function injectSvgSprite(path) {
-      
+        if (window.ethereum) {
+          // connect button trigger this !!
+            window.ethereum.request({ method: 'eth_requestAccounts' });
+          }
           var ajax = new XMLHttpRequest();
           ajax.open("GET", path, true);
           ajax.send();

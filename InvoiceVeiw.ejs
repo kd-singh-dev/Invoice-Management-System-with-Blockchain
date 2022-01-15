@@ -138,35 +138,35 @@
                     <h3>From</h3>
                       <div class="input-material-group mb-4 invoice-input-owner-company-name">
                         <label class="label" for="owner-company-name">Company Name</label>
-                        <p class="input-material" autocomplete="off" id="owner-company-name" type="text" name="ownerCompanyName" required data-validate-field="ownerCompanyName"><=% ownerCompanyName %></p>
+                        <p class="input-material" autocomplete="off" id="owner-company-name" type="text" name="ownerCompanyName" required data-validate-field="ownerCompanyName"><%= ownerCompanyName %></p>
 
                       </div>
                       <div class="input-material-group mb-4 invoice-input-owner-email">
                         <label class="label" for="owner-email">Email</label>
-                        <p class="input-material" autocomplete="off" id="owner-email" type="number" name="ownerEmail" required data-validate-field="ownerEmail"><=% ownerCompanyEmail %></p>
+                        <p class="input-material" autocomplete="off" id="owner-email" type="number" name="ownerEmail" required data-validate-field="ownerEmail"><%= ownerCompanyEmail %></p>
                       </div>
                  </div>
                  <div class="invoice-to">
                      <h3>To</h3>
                      <div class="input-material-group mb-4 invoice-input-company-name">
                       <label class="label" for="company-name">Company Name</label>
-                      <p class="input-material" autocomplete="off" id="company-name" type="number" name="companyName" required data-validate-field="companyName"><=% CompanyName %></p>
+                      <p class="input-material" autocomplete="off" id="company-name" type="number" name="companyName" required data-validate-field="companyName"><%= CompanyName %></p>
                     </div>
                     <div class="input-material-group mb-4 invoice-input-email">
                       <label class="label" for="email">Email</label>
-                      <p class="input-material" autocomplete="off" id="email" type="number" name="email" required data-validate-field="email"><=% CompanyEmail %></p>
+                      <p class="input-material" autocomplete="off" id="email" type="number" name="email" required data-validate-field="email"><%= CompanyEmail %></p>
                     </div>
                  </div>
                  <div class="invoice-date-section">
                   <div class="input-material-group mb-4 invoice-input-invoice-date">
                     <label class="label" for="invoice-date">Invoice Date</label>
-                    <p class="input-material" autocomplete="off" id="invoice-date" type="date" name="invoiceDate" required data-validate-field="invoiceDate"><=% invoiceDate %></p>
+                    <p class="input-material" autocomplete="off" id="invoice-date" type="date" name="invoiceDate" required data-validate-field="invoiceDate"><%= invoiceDate %></p>
                   </div>
                  </div>
                  <div class="last-date-section">
                   <div class="input-material-group mb-4 invoice-input-last-date">
                     <label class="label" for="last-date">Last Date</label>
-                    <p class="input-material" autocomplete="off" id="last-date" type="date" name="lastDate" required data-validate-field="lastDate"><=% lastDate %></p>
+                    <p class="input-material" autocomplete="off" id="last-date" type="date" name="lastDate" required data-validate-field="lastDate"><%= lastDate %></p>
                 </div>
             </div>
             
@@ -213,33 +213,33 @@
                           <tr class="text-center field1">
                              <td>
                               <div class="input-material-group mb-4 invoice-input-product-name">
-                                <p class="input-material" autocomplete="off" id="product-name1" type="text" name="productName1" placeholder="Product Name" required data-validate-field="productName1"><=% each.productName %></p>
+                                <p class="input-material" autocomplete="off" id="product-name1" type="text" name="productName1" placeholder="Product Name" required data-validate-field="productName1"><%= each.productName %></p>
                               </div>
                             </td>
                             <td class="text-right">
                               <div class="input-material-group mb-4 invoice-input-quantity">
-                                <p class="input-material" autocomplete="off" id="quantity1" type="number" name="quantity1" placeholder="Quantity" required data-validate-field="quantity1"><=% each.quantity %></p>
+                                <p class="input-material" autocomplete="off" id="quantity1" type="number" name="quantity1" placeholder="Quantity" required data-validate-field="quantity1"><%= each.quantity %></p>
                               </div>
                             </td>
                             <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-rate">
-                                 <p class="input-material" autocomplete="off" id="rate1" type="number" name="rate1" placeholder="Rate" required data-validate-field="rate1"><=% each.rate %></p>
+                                 <p class="input-material" autocomplete="off" id="rate1" type="number" name="rate1" placeholder="Rate" required data-validate-field="rate1"><%= each.rate %></p>
                                </div>
                                
                               </td>
                               <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-tax">
-                                 <p class="input-material" autocomplete="off" id="invoice-tax1" type="number" name="invoiceTax1" placeholder="" required data-validate-field="invoiceTax1"><=% each.tax %></p>
+                                 <p class="input-material" autocomplete="off" id="invoice-tax1" type="number" name="invoiceTax1" placeholder="" required data-validate-field="invoiceTax1"><%= each.tax %></p>
                                </div>
                               </td>
                               <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-discount">
-                                 <p class="input-material" autocomplete="off" id="invoice-discount1" type="number" name="invoiceDiscount1" placeholder="" required data-validate-field="invoiceDiscount1"><=% each.discount %></p>
+                                 <p class="input-material" autocomplete="off" id="invoice-discount1" type="number" name="invoiceDiscount1" placeholder="" required data-validate-field="invoiceDiscount1"><%= each.discount %></p>
                                </div>
                               </td>
                               <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-row-total">
-                                 <p class="input-material" autocomplete="off" id="invoice-total1" type="number" name="invoiceTotal1" placeholder="" required data-validate-field="invoiceTotal1" disabled><=% each.total %></p>
+                                 <p class="input-material" autocomplete="off" id="invoice-total1" type="number" name="invoiceTotal1" placeholder="" required data-validate-field="invoiceTotal1" disabled><%= each.total %></p>
                                </div>
                              </td>
                           </tr>
@@ -254,29 +254,26 @@
                        <div class="invoice-price-row">
                           <div class="sub-price">
                              <small>SUBTOTAL (With TAX)</small>
-                             <span class="text-inverse">$<=% subTotal %></span>
+                             <span class="text-inverse">$<%= subTotal %></span>
                           </div>
                           <div class="sub-price">
                              <i class="fa fa-minus text-muted"></i>
                           </div>
                           <div class="sub-price">
                              <small>Discount </small>
-                             <span class="text-inverse">$<=% totalDiscount %></span>
+                             <span class="text-inverse">$<%= totalDiscount %></span>
                           </div>
                        </div>
                     </div>
                     <div class="invoice-price-right">
-                       <small>TOTAL</small> <span class="f-w-600">$<=% totalAmount %></span>
+                       <small>TOTAL</small> <span class="f-w-600">$<%= totalAmount %></span>
                     </div>
                  </div>
                  <!-- end invoice-price -->
               </div>
               <!-- end invoice-content -->
               <!-- begin invoice-note -->
-              <button class="btn">
-                <i class="fa fa-save text-muted" style="font-size:25px;color:white;" aria-hidden="true"></i>
-                <span class="">Save</span>
-              </button>
+            
               <!-- end invoice-note -->
               <!-- begin invoice-footer -->
               

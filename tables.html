@@ -134,29 +134,23 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
+                          <th>Company Name</th>
+                          <th>Email</th>
+                          <th>Payment Address</th>
+                          <th>Invoice Date</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th class="border-bottom-0" scope="row">3</th>
-                          <td class="border-bottom-0">Larry</td>
-                          <td class="border-bottom-0">the Bird</td>
-                          <td class="border-bottom-0">@twitter</td>
+                        <% invoices.forEach(function(each){ let i=0;%>
+                          <tr>
+                            <th scope="row"><=% i %></th>
+                            <td><%= each.company_name %></td>
+                            <td><%= each.email %></td>
+                            <td><%= each.payment_address %></td>
+                            <td><%= each.invoice_date %></td>
+                            <td><%= each.status %></td>
+                          </tr>
+                        <% i++;}); %>
                         </tr>
                       </tbody>
                     </table>

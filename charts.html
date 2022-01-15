@@ -338,7 +338,7 @@
                               </td>
                               <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-row-total">
-                                 <input class="input-material" autocomplete="off" id="invoice-total`+(x+1)+`" type="number" name="invoiceTotal`+(x+1)+`" placeholder="" required data-validate-field="invoiceTotal`+(x+1)+`">
+                                 <input class="input-material" autocomplete="off" id="invoice-total`+(x+1)+`" type="number" name="invoiceTotal`+(x+1)+`" placeholder="" required data-validate-field="invoiceTotal`+(x+1)+`" disabled>
                                </div>
                              </td>
                             <td class="text-right trash-container" >
@@ -355,6 +355,7 @@
         console.log(x);
         $(".field"+x).remove();
         $(".add-more").data('total-entry', $(".add-more").data('total-entry')-1);
+        $(".invoice-input-quantity").trigger('input');
         //console.log("total entry: "+$(".add-more").data('total-entry'));
       });
       $("tbody").delegate(".invoice-input-quantity, .invoice-input-invoice-rate, .invoice-input-invoice-discount, .invoice-input-invoice-tax",'input' ,function(){

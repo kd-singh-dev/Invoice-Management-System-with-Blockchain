@@ -66,7 +66,10 @@ app.get("/invoice", function (req, res) {
     res.render("invoice", { invoices: invoices });
 });
 
-
+app.get("/invoiceData", function (req, res) {
+    console.log(req.query);
+    res.redirect('/');
+});
 
 app.get("/invoiceView", function (req, res) {
     var product = [

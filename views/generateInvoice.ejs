@@ -142,7 +142,7 @@
                 </div>
                 <div class="input-material-group mb-4 invoice-input-owner-email">
                   <label class="label" for="owner-email">Email</label>
-                  <input class="input-material" autocomplete="off" id="owner-email" type="number" name="ownerEmail"
+                  <input class="input-material" autocomplete="off" id="owner-email" type="text" name="ownerEmail"
                     required data-validate-field="ownerEmail">
                 </div>
               </div>
@@ -150,12 +150,12 @@
                 <h3>To</h3>
                 <div class="input-material-group mb-4 invoice-input-company-name">
                   <label class="label" for="company-name">Company Name</label>
-                  <input class="input-material" autocomplete="off" id="company-name" type="number" name="companyName"
+                  <input class="input-material" autocomplete="off" id="company-name" type="text" name="companyName"
                     required data-validate-field="companyName">
                 </div>
                 <div class="input-material-group mb-4 invoice-input-email">
                   <label class="label" for="email">Email</label>
-                  <input class="input-material" autocomplete="off" id="email" type="number" name="email" required
+                  <input class="input-material" autocomplete="off" id="email" type="text" name="email" required
                     data-validate-field="email">
                 </div>
               </div>
@@ -256,6 +256,7 @@
                   </tbody>
                 </table>
                 <div class="input-control">
+                  <input class="hidden" type="number" name="totalNumberOFProduct" value="1">
                   <h5 class="add-more" data-total-entry="1" data-seq="1">
                     <i class="fa fa-plus text-muted"> </i> Add
                   </h5>
@@ -318,13 +319,14 @@
   <script src="js/front.js"></script>
   <script>
     $(document).ready(function(){
+      $(".hidden").hide();
       $(".add-more").click(function(){
         var x = $(this).data('seq');
         $("tbody").append(`
         <tr class="text-center field`+(x+1)+`">
           <td>
             <div class="input-material-group mb-4 invoice-input-product-name">
-              <input class="input-material" autocomplete="off" id="product-name`+(x+1)+`" type="number" name="productName`+(x+1)+`" placeholder="Product Name" required data-validate-field="productName`+(x+1)+`">
+              <input class="input-material" autocomplete="off" id="product-name`+(x+1)+`" type="text" name="productName`+(x+1)+`" placeholder="Product Name" required data-validate-field="productName`+(x+1)+`">
               </div>
               </td>
               <td class="text-center">
@@ -360,6 +362,7 @@
         `);
         $(this).data('seq', x+1);
         $(this).data('total-entry', $(".add-more").data('total-entry')+1);
+        $(".hidden").val($(".add-more").data('total-entry'));
         //console.log("total entry: "+$(".add-more").data('total-entry'));
       });
       $("tbody").delegate('.trash-icon','click',function(){
@@ -367,6 +370,7 @@
         console.log(x);
         $(".field"+x).remove();
         $(".add-more").data('total-entry', $(".add-more").data('total-entry')-1);
+        $(".hidden").val($(".add-more").data('total-entry'));
         $(".invoice-input-quantity").trigger('input');
         //console.log("total entry: "+$(".add-more").data('total-entry'));
       });

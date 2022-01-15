@@ -308,77 +308,96 @@
   <!-- Main File-->
   <script src="js/front.js"></script>
   <script>
-    $(document).ready(function () {
-      $(".add-more").click(function () {
+    $(document).ready(function(){
+      $(".add-more").click(function(){
         var x = $(this).data('seq');
         $("tbody").append(`
-        <tr class="text-center field`+ (x + 1) + `">
+        <tr class="text-center field`+(x+1)+`">
           <td>
             <div class="input-material-group mb-4 invoice-input-product-name">
-              <input class="input-material" autocomplete="off" id="product-name`+ (x + 1) + `" type="number" name="productName` + (x + 1) + `" placeholder="Product Name" required data-validate-field="productName` + (x + 1) + `">
+              <input class="input-material" autocomplete="off" id="product-name`+(x+1)+`" type="number" name="productName`+(x+1)+`" placeholder="Product Name" required data-validate-field="productName`+(x+1)+`">
               </div>
               </td>
               <td class="text-center">
                 <div class="input-material-group mb-4 invoice-input-quantity">
-                                <input class="input-material" autocomplete="off" id="quantity`+ (x + 1) + `" type="number" name="quantity` + (x + 1) + `" placeholder="Quantity" required data-validate-field="quantity` + (x + 1) + `">
+                                <input class="input-material" autocomplete="off" id="quantity`+(x+1)+`" type="number" name="quantity`+(x+1)+`" placeholder="Quantity" required data-validate-field="quantity`+(x+1)+`">
                               </div>
                             </td>
                             <td class="text-center">
                               <div class="input-material-group mb-4 invoice-input-invoice-rate">
-                                 <input class="input-material" autocomplete="off" id="rate`+ (x + 1) + `" type="number" name="rate` + (x + 1) + `" placeholder="Rate" required data-validate-field="rate` + (x + 1) + `">
+                                 <input class="input-material" autocomplete="off" id="rate`+(x+1)+`" type="number" name="rate`+(x+1)+`" placeholder="Rate" required data-validate-field="rate`+(x+1)+`">
                               </div>
                                  
                             </td>
                             <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-tax">
-                                 <input class="input-material" autocomplete="off" id="invoice-tax`+ (x + 1) + `" type="number" name="invoiceTax` + (x + 1) + `" placeholder="" required data-validate-field="invoiceTax` + (x + 1) + `">
+                                 <input class="input-material" autocomplete="off" id="invoice-tax`+(x+1)+`" type="number" name="invoiceTax`+(x+1)+`" placeholder="" required data-validate-field="invoiceTax`+(x+1)+`">
                                </div>
                               </td>
                               <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-discount">
-                                 <input class="input-material" autocomplete="off" id="invoice-discount`+ (x + 1) + `" type="number" name="invoiceDiscount` + (x + 1) + `" placeholder="" required data-validate-field="invoiceDiscount` + (x + 1) + `">
+                                 <input class="input-material" autocomplete="off" id="invoice-discount`+(x+1)+`" type="number" name="invoiceDiscount`+(x+1)+`" placeholder="" required data-validate-field="invoiceDiscount`+(x+1)+`">
                                </div>
                               </td>
                               <td class="text-right">
                                <div class="input-material-group mb-4 invoice-input-invoice-row-total">
-                                 <input class="input-material" autocomplete="off" id="invoice-total`+ (x + 1) + `" type="number" name="invoiceTotal` + (x + 1) + `" placeholder="" required data-validate-field="invoiceTotal` + (x + 1) + ` " disable>
+                                 <input class="input-material" autocomplete="off" id="invoice-total`+(x+1)+`" type="number" name="invoiceTotal`+(x+1)+`" placeholder="" required data-validate-field="invoiceTotal`+(x+1)+`" disabled>
                                </div>
                              </td>
                             <td class="text-right trash-container" >
-                                <i class="fa fa-trash text-muted trash-icon" data-number="`+ (x + 1) + `"> </i>
+                                <i class="fa fa-trash text-muted trash-icon" data-number="`+(x+1)+`"> </i>
                             </td>
                 </tr>
         `);
-        $(this).data('seq', x + 1);
-        $(this).data('total-entry', $(".add-more").data('total-entry') + 1);
+        $(this).data('seq', x+1);
+        $(this).data('total-entry', $(".add-more").data('total-entry')+1);
         //console.log("total entry: "+$(".add-more").data('total-entry'));
       });
-      $("tbody").delegate('.trash-icon', 'click', function () {
+      $("tbody").delegate('.trash-icon','click',function(){
         var x = $(this).data('number');
         console.log(x);
-        $(".field" + x).remove();
-        $(".add-more").data('total-entry', $(".add-more").data('total-entry') - 1);
+        $(".field"+x).remove();
+        $(".add-more").data('total-entry', $(".add-more").data('total-entry')-1);
+        $(".invoice-input-quantity").trigger('input');
         //console.log("total entry: "+$(".add-more").data('total-entry'));
       });
-      $("tbody").delegate(".invoice-input-quantity, .invoice-input-invoice-rate, .invoice-input-invoice-discount, .invoice-input-invoice-tax", 'input', function () {
+      $("tbody").delegate(".invoice-input-quantity, .invoice-input-invoice-rate, .invoice-input-invoice-discount, .invoice-input-invoice-tax",'input' ,function(){
         var x = $(this).parent().parent().find(".trash-container i").data('number');
-        var quantity = $(this).parent().parent().find(".invoice-input-quantity #quantity" + x + "").val();
-        var rate = $(this).parent().parent().find(".invoice-input-invoice-rate #rate" + x + "").val();
-        var discount = $(this).parent().parent().find(".invoice-input-invoice-discount #invoice-discount" + x + "").val();
-        var tax = $(this).parent().parent().find(".invoice-input-invoice-tax #invoice-tax" + x + "").val();
-        var total = (quantity * rate) - (discount) + ((quantity * rate * tax) / 100);
+        var quantity = $(this).parent().parent().find(".invoice-input-quantity #quantity"+x+"").val();
+        var rate = $(this).parent().parent().find(".invoice-input-invoice-rate #rate"+x+"").val();
+        var discount = $(this).parent().parent().find(".invoice-input-invoice-discount #invoice-discount"+x+"").val();
+        var tax = $(this).parent().parent().find(".invoice-input-invoice-tax #invoice-tax"+x+"").val();
+        var total = (quantity*rate)+((quantity*rate*tax)/100);
         //console.log(x+" "+quantity+" "+rate+" "+discount+" "+tax+" "+total);
-        if (discount < 0 || discount > 100) {
-          alert("Discount should be between 0 and 100");
-          $(this).parent().parent().find(".invoice-input-invoice-discount #invoice-discount" + x + "").val(0);
-          $(this).parent().parent().find(".invoice-input-invoice-discount #invoice-discount" + x + "").focus();
-        }
-        if (tax < 0 || tax > 100) {
+
+        if(tax<0 || tax>100){
           alert("Tax should be between 0 and 100");
-          $(this).parent().parent().find(".invoice-input-invoice-tax #invoice-tax" + x + "").val(0);
-          $(this).parent().parent().find(".invoice-input-invoice-tax #invoice-tax" + x + "").focus();
+          $(this).parent().parent().find(".invoice-input-invoice-tax #invoice-tax"+x+"").val(0);
+          $(this).parent().parent().find(".invoice-input-invoice-tax #invoice-tax"+x+"").focus();
         }
-        $(this).parent().parent().find(".invoice-input-invoice-row-total #invoice-total" + x + "").val(total);
+        if(quantity<0){
+          alert("Quantity should be greater than 0");
+          $(this).parent().parent().find(".invoice-input-quantity #quantity"+x+"").val(0);
+          $(this).parent().parent().find(".invoice-input-quantity #quantity"+x+"").focus();
+        }
+        $(this).parent().parent().find(".invoice-input-invoice-row-total #invoice-total"+x+"").val(total);
+        var sum = 0;
+        var sum_discount = 0;
+        $('table tr').each(function(){
+          var x = $(this).find(".trash-container i").data('number');
+          $(this).find('.invoice-input-invoice-row-total #invoice-total'+x+'').each(function(){
+            sum += parseFloat($(this).val());
+          });
+          $("#subtotal").html(sum.toFixed(3));
+          $(this).find('.invoice-input-invoice-discount #invoice-discount'+x+'').each(function(){
+            if($(this).val()>0){
+              sum_discount += parseFloat($(this).val());
+            }
+          });
+          $("#discount").html(sum_discount);
+          console.log(sum_discount);
+        });
+        $("#final-total").html((parseFloat($("#subtotal").html())-parseFloat($("#discount").html())).toFixed(3));
       });
     });
     // ------------------------------------------------------- //

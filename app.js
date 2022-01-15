@@ -48,22 +48,22 @@ app.get("/invoice", function (req, res) {
     // sort via date and add a tab to search staus
     var invoices = [
         {
-            company_name:"karan",
-            email:"karandchandi@gmail.com",
-        payment_address:"sads",
-        invoice_date:"12/12/2022",
-        status:"paid"
-    },
-    {
-        company_name:"karan",
-        email:"karandchandi@gmail.com",
-        payment_address:"sads",
-        invoice_date:"12/12/2022",
-        status: "not yet"
-    }
-]
+            company_name: "karan",
+            email: "karandchandi@gmail.com",
+            payment_address: "sads",
+            invoice_date: "12/12/2022",
+            status: "paid"
+        },
+        {
+            company_name: "karan",
+            email: "karandchandi@gmail.com",
+            payment_address: "sads",
+            invoice_date: "12/12/2022",
+            status: "not yet"
+        }
+    ]
 
-res.render("invoice",{invoices:invoices});
+    res.render("invoice", { invoices: invoices });
 });
 
 
@@ -72,19 +72,19 @@ app.get("/invoiceView", function (req, res) {
     var product = [
         {
             productName: "Karan",
-                    productQuantity: "productQuantity",
-                    productRate: "",
-                    tax: "",
-                    discount: "",
-                    lineTotal: ""
+            productQuantity: "productQuantity",
+            productRate: "",
+            tax: "",
+            discount: "",
+            lineTotal: ""
         },
         {
             productName: "",
-                    productQuantity: "",
-                    productRate: "",
-                    tax: "",
-                    discount: "",
-                    lineTotal: ""
+            productQuantity: "",
+            productRate: "",
+            tax: "",
+            discount: "",
+            lineTotal: ""
         }
     ];
     res.render("invoiceView", {
@@ -106,6 +106,27 @@ app.get("/invoiceView", function (req, res) {
 
 app.get("/generateInvoice", function (req, res) {
     res.render("generateInvoice");
+});
+
+app.get("/customers", function (req, res) {
+    var customers = [
+        {
+            company_name: "karan",
+            email: "karandchandi@gmail.com",
+            address: "sads",
+            ac_no: "12/12/2022",
+            business: "653578"
+        },
+        {
+            company_name: "karan",
+            email: "karandchandi@gmail.com",
+            address: "rourkela",
+            ac_no: "12/12/2022",
+            business: "653578"
+        }
+    ]
+
+    res.render("customers", { customers: customers });
 });
 
 

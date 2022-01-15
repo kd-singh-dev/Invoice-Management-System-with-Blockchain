@@ -27,7 +27,7 @@
 </head>
 
 <body>
-  
+
   <header class="header">
     <nav class="navbar navbar-expand-lg py-3 bg-dash-dark-2 border-bottom border-dash-dark-1 z-index-10">
       <div class="search-panel">
@@ -54,8 +54,7 @@
         </div>
       </div>
       <div class="container-fluid d-flex align-items-center justify-content-between py-1">
-        <div class="navbar-header d-flex align-items-center"><a class="navbar-brand text-uppercase text-reset"
-            href="/">
+        <div class="navbar-header d-flex align-items-center"><a class="navbar-brand text-uppercase text-reset" href="/">
             <div class="brand-text brand-big"><strong class="text-primary">Dark</strong><strong>Admin</strong></div>
             <div class="brand-text brand-sm"><strong class="text-primary">D</strong><strong>A</strong></div>
           </a>
@@ -83,18 +82,19 @@
     <nav id="sidebar">
       <!-- Sidebar Header-->
       <div class="sidebar-header d-flex align-items-center p-4"><img class="avatar shadow-0 img-fluid rounded-circle"
-        src="https://avatars.githubusercontent.com/u/50829119?v=4" alt="...">
-      <div class="ms-3 title">
-        <h1 class="h5 mb-1">KD Singh</h1>
-        <p class="text-sm text-gray-700 mb-0 lh-1">Admin</p>
-      </div>
+          src="https://avatars.githubusercontent.com/u/50829119?v=4" alt="...">
+        <div class="ms-3 title">
+          <h1 class="h5 mb-1">KD Singh</h1>
+          <p class="text-sm text-gray-700 mb-0 lh-1">Admin</p>
+        </div>
       </div><span class="text-uppercase text-gray-600 text-xs mx-3 px-2 heading mb-2">Main</span>
       <ul class="list-unstyled">
-        <li class="sidebar-item"><a class="sidebar-link" href="/">
+
+        <li class="sidebar-item "><a class="sidebar-link" href="/">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#real-estate-1"> </use>
             </svg><span>Home </span></a></li>
-        <li class="sidebar-item active"><a class="sidebar-link" href="/invoice">
+        <li class="sidebar-item active  "><a class="sidebar-link" href="/invoice">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#portfolio-grid-1"> </use>
             </svg><span>Invoices </span></a></li>
@@ -102,6 +102,16 @@
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#sales-up-1"> </use>
             </svg><span>Generate Invoice </span></a></li>
+<<<<<<< HEAD
+=======
+        <li class="sidebar-item"><a class="sidebar-link" href="/customers">
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy">
+              <use xlink:href="#sales-up-1"> </use>
+            </svg><span>Customers </span></a></li>
+
+
+
+>>>>>>> b44604dccc9f8351396534b524f031eddebe7d4b
       </ul>
 
 
@@ -146,6 +156,7 @@
                         </tr>
                       </thead>
                       <tbody>
+<<<<<<< HEAD
                         <% var i = 1; %>
                         <% invoices.forEach(function(each){ %>
                           <tr>
@@ -157,6 +168,32 @@
                           </tr>
                         <% i++;}); %>
                         </tr>
+=======
+                        <% var i=1; %>
+                          <% invoices.forEach(function(each){ %>
+                            <tr>
+                              <th scope="row">
+                                <%= i %>
+                              </th>
+                              <td>
+                                <%= each.company_name %>
+                              </td>
+                              <td>
+                                <%= each.email %>
+                              </td>
+                              <td>
+                                <%= each.payment_address %>
+                              </td>
+                              <td>
+                                <%= each.invoice_date %>
+                              </td>
+                              <td>
+                                <%= each.status %>
+                              </td>
+                            </tr>
+                            <% i++;}); %>
+                              </tr>
+>>>>>>> b44604dccc9f8351396534b524f031eddebe7d4b
                       </tbody>
                     </table>
                   </div>
@@ -168,14 +205,14 @@
           </div>
         </div>
       </section>
-     <!-- Page Footer-->
-     <footer class="position-absolute bottom-0 bg-dash-dark-2 text-white text-center py-3 w-100 text-xs" id="footer">
-      <div class="container-fluid text-center">
-        <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-        <p class="mb-0 text-dash-gray">2022 &copy; A hacking team from, <a
-            href="https://github.com/kdsinghcoder">VIT Vellore</a>.</p>
-      </div>
-    </footer>
+      <!-- Page Footer-->
+      <footer class="position-absolute bottom-0 bg-dash-dark-2 text-white text-center py-3 w-100 text-xs" id="footer">
+        <div class="container-fluid text-center">
+          <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+          <p class="mb-0 text-dash-gray">2022 &copy; A hacking team from, <a href="https://github.com/kdsinghcoder">VIT
+              Vellore</a>.</p>
+        </div>
+      </footer>
     </div>
   </div>
   <!-- JavaScript files-->

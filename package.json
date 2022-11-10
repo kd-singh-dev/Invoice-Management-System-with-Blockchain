@@ -1,5 +1,5 @@
 {
-  "name": "invoice-management-system-with-blockchain",
+  "name": "Decentralized Invoice Management System",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -8,16 +8,8 @@
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kdsinghcoder/Invoice-Management-System-with-Blockchain.git"
-  },
-  "author": "Kdsingh coder",
+  "author": "Shubham",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kdsinghcoder/Invoice-Management-System-with-Blockchain/issues"
-  },
-  "homepage": "https://github.com/kdsinghcoder/Invoice-Management-System-with-Blockchain#readme",
   "dependencies": {
     "dotenv": "^12.0.3",
     "ejs": "^3.1.6",

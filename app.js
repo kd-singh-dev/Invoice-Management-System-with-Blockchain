@@ -8,213 +8,209 @@ var express = require("express"),
     mongoose = require("mongoose"),
     localStrategy = require("passport-local");
 var port = process.env.PORT || 3001;
-var cAdd = "0xbda6Bcc1e95601493F15A3DFA187Bd41A5832f3d";
+var cAdd = "0xd17b10e7bb964ff191b0180de329b571f1fbf606";
 var abi = [
-    {
-        "inputs": [
-            {
-                "internalType": "string",
-                "name": "name",
-                "type": "string"
-            },
-            {
-                "internalType": "address",
-                "name": "adr",
-                "type": "address"
-            },
-            {
-                "internalType": "string",
-                "name": "email",
-                "type": "string"
-            }
-        ],
-        "name": "_createList",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "string",
-                "name": "_tx",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "_desc",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "_method",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "_network",
-                "type": "string"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_val",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_total",
-                "type": "uint256"
-            },
-            {
-                "internalType": "address",
-                "name": "_pay",
-                "type": "address"
-            }
-        ],
-        "name": "_invoiceCreate",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "_listCompany",
-        "outputs": [
-            {
-                "internalType": "string",
-                "name": "_name",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "_email",
-                "type": "string"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "name": "_listInvoice",
-        "outputs": [
-            {
-                "internalType": "string",
-                "name": "txNum",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "desc",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "method",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "nework",
-                "type": "string"
-            },
-            {
-                "internalType": "uint256",
-                "name": "total",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "val",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "bal",
-                "type": "uint256"
-            },
-            {
-                "internalType": "address",
-                "name": "payer",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "_rcList",
-        "outputs": [
-            {
-                "internalType": "string",
-                "name": "name",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "email",
-                "type": "string"
-            },
-            {
-                "internalType": "address",
-                "name": "payD",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "string",
-                "name": "name",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "email",
-                "type": "string"
-            }
-        ],
-        "name": "_registerCompany",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    }
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "adr",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			}
+		],
+		"name": "_createList",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_tx",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_desc",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_method",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_network",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_val",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_total",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_pay",
+				"type": "address"
+			}
+		],
+		"name": "_invoiceCreate",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "_listCompany",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_email",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "_listInvoice",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "txNum",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "desc",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "status",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "method",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "nework",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "total",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "val",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "bal",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "payer",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "_rcList",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "payD",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			}
+		],
+		"name": "_registerCompany",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
 ]
-
-//import required modles
-
-//required modules ends
 
 passportLocalMongoose = require("passport-local-mongoose");
 app.use('/', express.static('public'));
-var web3 = new Web3("https://rinkeby.infura.io/v3/e8d5474e44074334b5f281433b5c3b7c");
+var web3 = new Web3("https://goerli.infura.io/v3/a579372465184818bef2111003a87713");
 const contract = new web3.eth.Contract(abi,cAdd);
 ///mongoose and express setup
 
@@ -288,39 +284,6 @@ app.get("/invoiceData", async function (req, res) {
     res.redirect('/');
 });
 
-app.get("/invoiceView", function (req, res) {
-    var product = [
-        {
-            productName: "Karan",
-            productQuantity: "productQuantity",
-            productRate: "",
-            tax: "",
-            discount: "",
-            lineTotal: ""
-        },
-        {
-            productName: "",
-            productQuantity: "",
-            productRate: "",
-            tax: "",
-            discount: "",
-            lineTotal: ""
-        }
-    ];
-    res.render("invoiceView", {
-        ownerCompanyName: "ownerCompanyName", ownerCompanyEmail: "ownerCompanyEmail", CompanyName: "CompanyName",
-        CompanyEmail: "CompanyEmail",
-        invoiceDate: "12/12/2022",
-        lastDate: "lastDate",
-        paymentOption: "1",
-        product: product,
-
-        subTotal: "subTotal",
-        totalDiscount: "totalDiscount",
-        totalAmount: "totalAmount"
-
-    });
-});
 
 
 
@@ -329,6 +292,7 @@ app.get("/generateInvoice", function (req, res) {
 });
 
 app.get("/customers", function (req, res) {
+	
     var customers = [
         {
             company_name: "karan",

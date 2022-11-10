@@ -23,7 +23,7 @@ contract Invoice {
     struct RegisterC {
         string name;
         string email;
-        address payD;
+        address payD;   
         
     }
     mapping (address => RegisterC) public _rcList;

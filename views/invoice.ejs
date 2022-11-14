@@ -144,10 +144,10 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Company Name</th>
-                          <th>Email</th>
-                          <th>Payment Address</th>
-                          <th>Invoice Date</th>
+                          <th>Description</th>
+                          <th>Amount</th>
+                          <th>Transaction Hash</th>
+                          <th>Network</th>
                           <th>Status</th>
                         </tr>
                       </thead>
@@ -157,9 +157,10 @@
                           <tr>
                             <th scope="row"><%= i %></th>
                             <td><%= each.company_name %></td>
-                            <td><%= each.email %></td>
+                            <td><%= each.amount %></td>
                             <td><%= each.payment_address %></td>
-                            <td><%= each.invoice_date %></td>
+                            <td><%= each.network %></td>
+                            <td><%= each.status %></td>
                           </tr>
                         <% i++;}); %>
                         </tr>

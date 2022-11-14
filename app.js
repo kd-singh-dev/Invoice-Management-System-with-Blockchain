@@ -246,23 +246,16 @@ app.get("/login", function (req, res) {
 app.get("/invoice", async function (req, res) {
     //to do
     // sort via date and add a tab to search staus
-    var t = await contract.methods._listInvoice("0x57fde39ffb811bebd71d3c72ff12536df58892f52e11d370d90061b826a4ce96").call();
+    var t = await contract.methods._listInvoice("0x809C038a02791B18C06ed7947B2c74F41EC2700D").call();
     console.log(t);
-    var c = await contract.methods._rcList("0x809C038a02791B18C06ed7947B2c74F41EC2700D").call();
+    // var c = await contract.methods._rcList("0x809C038a02791B18C06ed7947B2c74F41EC2700D").call();
     var invoices = [
         {
-            company_name: c.name,
-            email: c.email,
+            company_name: t.desc,
+            amount: t.total,
             payment_address: t.payer,
-            invoice_date: "12/12/2022",
+            network: t.nework,
             status: t.status
-        },
-        {
-            company_name: "karan",
-            email: "karandchandi@gmail.com",
-            payment_address: "sads",
-            invoice_date: "12/12/2022",
-            status: "not yet"
         }
     ]
 
@@ -275,7 +268,7 @@ app.get("/invoiceData", async function (req, res) {
     const a = "0x809C038a02791B18C06ed7947B2c74F41EC2700D";
     try{
         console.log(req.query);
-        const id = await contract.methods._invoiceCreate(`${req.query.quantity1}`,req.query.productName1,"Dai","Ethereum",req.query.rate1,10,`${"0xD817F7BF414B9226431EeC0C8eAe11780B81A831"}`).call();
+        const id = await contract.methods._invoiceCreate(a,req.query.productName1,"Dai",req.query.network,req.query.rate1,10,`${"0xD817F7BF414B9226431EeC0C8eAe11780B81A831"}`).call();
         console.log(id);    
     }catch(err){
         console.log(err);
@@ -295,15 +288,15 @@ app.get("/customers", function (req, res) {
 	
     var customers = [
         {
-            company_name: "karan",
-            email: "karandchandi@gmail.com",
+            company_name: "shubham",
+            email: "shubhamd@gmail.com",
             address: "sads",
             ac_no: "12/12/2022",
             business: "653578"
         },
         {
-            company_name: "karan",
-            email: "karandchandi@gmail.com",
+            company_name: "shubham",
+            email: "shubhamd@gmail.com",
             address: "rourkela",
             ac_no: "12/12/2022",
             business: "653578"
